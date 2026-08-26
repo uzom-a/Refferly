@@ -50,7 +50,7 @@ export default async function Home() {
       </header>
 
       <main className="px-4 pb-16 pt-10 md:px-6 md:pt-16">
-        <div className="mx-auto max-w-7xl rounded-2xl border border-slate-800/40 bg-[color:var(--surface)]/95 p-6 shadow-2xl md:p-10">
+        <div className="mx-auto max-w-7xl rounded-2xl border border-slate-800/40 bg-[color:var(--surface)]/95 p-5 shadow-2xl md:p-8">
           {/* Hero */}
           <section className="grid gap-12 md:grid-cols-2 md:items-center">
             <div className="space-y-6">
@@ -71,7 +71,7 @@ export default async function Home() {
                   </p>
                 </div>
               </div>
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-700">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-orange-700">
               For people who do not trust random reviews
             </p>
               <h1 className="text-4xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl">
@@ -95,7 +95,7 @@ export default async function Home() {
                   <h2 className="text-base font-semibold text-slate-900">
                     How your network vouches
                   </h2>
-                  <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[11px] font-medium text-amber-800">
+                  <span className="rounded-full bg-orange-50 px-2.5 py-0.5 text-[11px] font-medium text-orange-800">
                     Graph preview
                   </span>
                 </div>
@@ -209,13 +209,13 @@ export default async function Home() {
           </section>
 
           {/* Differentiator zone */}
-          <section className="mt-16 grid gap-10 md:grid-cols-2">
-            <div className="space-y-4">
+          <section className="mt-8 grid gap-6 md:grid-cols-2">
+            <div className="space-y-3">
               <h2 className="text-base font-semibold text-neutral-900">
                 Trust beats ratings
               </h2>
-              <div className="grid gap-4 text-sm md:grid-cols-2">
-                <Card className="space-y-3 border-dashed transition hover:-translate-y-0.5 hover:shadow-md">
+              <div className="grid gap-3 text-sm md:grid-cols-2">
+                <Card className="space-y-2 border-dashed p-4 transition hover:-translate-y-0.5 hover:shadow-md">
                   <div className="text-[13px] font-semibold text-neutral-800">
                     Generic review app
                   </div>
@@ -225,7 +225,7 @@ export default async function Home() {
                     <li>Platforms own your rating, not you</li>
                   </ul>
                 </Card>
-                <Card className="space-y-3 border border-emerald-200 bg-emerald-50 transition hover:-translate-y-0.5 hover:shadow-md">
+                <Card className="space-y-2 border border-rose-200 bg-rose-50 p-4 transition hover:-translate-y-0.5 hover:shadow-md">
                   <div className="text-[13px] font-semibold text-neutral-900">
                     Network-based referrals
                   </div>
@@ -239,11 +239,11 @@ export default async function Home() {
           </div>
 
             {sampleWorker && (
-              <Card className="space-y-3 transition hover:-translate-y-0.5 hover:shadow-md">
+              <Card className="space-y-2 p-4 transition hover:-translate-y-0.5 hover:shadow-md">
                 <div className="text-[13px] font-semibold text-neutral-800">
                   This worker is {sampleWorker.inYourNetworkSteps ?? "a few"} steps from you
                 </div>
-                <div className="rounded-xl border border-dashed border-neutral-200 bg-neutral-50 px-4 py-4 text-xs text-neutral-600">
+                <div className="rounded-xl border border-dashed border-neutral-200 bg-neutral-50 px-4 py-3 text-xs text-neutral-600">
                   <div className="flex flex-col gap-1">
                     <div>{sampleWorker.pathToYou ?? "Connections will appear here once your network grows."}</div>
                   </div>
@@ -259,9 +259,9 @@ export default async function Home() {
           {/* Sample worker profile teaser */}
           <section
             id="for-workers"
-            className="mt-16 flex justify-center px-2 text-sm"
+            className="mt-8 flex justify-center px-2 text-sm"
           >
-            <Card className="w-full max-w-xl space-y-4 bg-white transition hover:-translate-y-0.5 hover:shadow-md">
+            <Card className="w-full max-w-xl space-y-3 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md">
               <h2 className="text-base font-semibold text-neutral-900">
                 A worker profile with receipts
               </h2>
