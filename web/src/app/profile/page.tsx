@@ -57,13 +57,13 @@ export default function ProfilePage() {
     if (hydrated) return;
 
     try {
-      const stored = window.localStorage.getItem("trustnet:user");
+      const stored = window.localStorage.getItem("refferly:user");
       if (stored) {
         const parsed: AuthUser = JSON.parse(stored);
         setUser(parsed);
       }
     } catch {
-      window.localStorage.removeItem("trustnet:user");
+      window.localStorage.removeItem("refferly:user");
     } finally {
       setHydrated(true);
     }

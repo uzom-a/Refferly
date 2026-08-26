@@ -31,13 +31,13 @@ export default function WorkerOnboardingPage() {
     if (hydrated) return;
 
     try {
-      const stored = window.localStorage.getItem("trustnet:user");
+      const stored = window.localStorage.getItem("refferly:user");
       if (stored) {
         const parsed = JSON.parse(stored);
         setUser(parsed);
       }
     } catch {
-      window.localStorage.removeItem("trustnet:user");
+      window.localStorage.removeItem("refferly:user");
     } finally {
       setHydrated(true);
     }
@@ -177,7 +177,7 @@ export default function WorkerOnboardingPage() {
         if (refreshResponse.ok) {
           const refreshed = (await refreshResponse.json()) as { user: AuthUser };
           setUser(refreshed.user);
-          window.localStorage.setItem("trustnet:user", JSON.stringify(refreshed.user));
+          window.localStorage.setItem("refferly:user", JSON.stringify(refreshed.user));
         }
       } catch {
         // Non-blocking - continue even if refresh fails

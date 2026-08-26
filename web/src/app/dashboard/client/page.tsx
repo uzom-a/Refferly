@@ -47,13 +47,13 @@ export default function ClientDashboardPage() {
     if (hydrated) return;
 
     try {
-      const stored = window.localStorage.getItem("trustnet:user");
+      const stored = window.localStorage.getItem("refferly:user");
       if (stored) {
         const parsed: AuthUser = JSON.parse(stored);
         setUser(parsed);
       }
     } catch {
-      window.localStorage.removeItem("trustnet:user");
+      window.localStorage.removeItem("refferly:user");
     } finally {
       setHydrated(true);
     }
@@ -82,7 +82,7 @@ export default function ClientDashboardPage() {
         const data = (await response.json()) as { user: AuthUser };
         if (!active) return;
         setUser(data.user);
-        window.localStorage.setItem("trustnet:user", JSON.stringify(data.user));
+        window.localStorage.setItem("refferly:user", JSON.stringify(data.user));
       } catch (err) {
         if (!active) return;
         console.warn("Unable to refresh profile", err);
@@ -414,7 +414,7 @@ export default function ClientDashboardPage() {
                 variant="outline"
                 onClick={() => {
                   useUserStore.getState().clearUser();
-                  window.localStorage.removeItem("trustnet:user");
+                  window.localStorage.removeItem("refferly:user");
                   router.push("/auth/sign-in");
                 }}
               >

@@ -65,7 +65,7 @@ function SignInInner() {
 
       const user: AuthUser = data.user;
       setUser(user);
-      localStorage.setItem("trustnet:user", JSON.stringify(user));
+      localStorage.setItem("refferly:user", JSON.stringify(user));
       setSuccess(mode === "signup" ? "Account created. Redirecting..." : "Welcome back!");
 
       const destination = user.role === "CLIENT" ? "/dashboard/client" : "/dashboard/worker";
