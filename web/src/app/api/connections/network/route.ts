@@ -55,28 +55,67 @@ function buildWorkerSummary(user: {
   };
 }
 
-async function buildClientStats(clientProfileId: string): Promise<ClientProfileStats> {
-  const jobs = await prisma.job.findMany({
-    where: { clientId: clientProfileId },
-    select: { workerId: true },
-  });
+async function buildClientStatsMap(
+  clientProfileIds: string[],
+): Promise<Map<string, ClientProfileStats>> {
+  const statsMap = new Map<string, ClientProfileStats>();
+  if (clientProfileIds.length === 0) {
+    return statsMap;
+  }
 
-  const uniqueWorkerIds = new Set(jobs.map((job) => job.workerId));
-
-  const [jobsPosted, employeeReviews, workersVouching] = await Promise.all([
-    prisma.job.count({ where: { clientId: clientProfileId } }),
-    prisma.review.count({ where: { reviewerId: clientProfileId } }),
-    prisma.review.count({ where: { referrerId: clientProfileId } }),
+  const [jobsByClient, jobCounts, reviewCounts, vouchCounts] = await Promise.all([
+    prisma.job.findMany({
+      where: { clientId: { in: clientProfileIds } },
+      select: { clientId: true, workerId: true },
+    }),
+    prisma.job.groupBy({
+      by: ["clientId"],
+      where: { clientId: { in: clientProfileIds } },
+      _count: { _all: true },
+    }),
+    prisma.review.groupBy({
+      by: ["reviewerId"],
+      where: { reviewerId: { in: clientProfileIds } },
+      _count: { _all: true },
+    }),
+    prisma.review.groupBy({
+      by: ["referrerId"],
+      where: { referrerId: { in: clientProfileIds } },
+      _count: { _all: true },
+    }),
   ]);
 
-  return {
-    peopleEmployed: uniqueWorkerIds.size,
-    jobsPosted,
-    employeeReviews,
-    peopleConnected: uniqueWorkerIds.size,
-    workersVouching,
-    reviewsWritten: employeeReviews,
-  };
+  const uniqueWorkersByClient = new Map<string, Set<string>>();
+  for (const job of jobsByClient) {
+    const set = uniqueWorkersByClient.get(job.clientId) ?? new Set<string>();
+    set.add(job.workerId);
+    uniqueWorkersByClient.set(job.clientId, set);
+  }
+
+  const jobCountByClient = new Map(jobCounts.map((row) => [row.clientId, row._count._all]));
+  const reviewCountByClient = new Map(
+    reviewCounts.map((row) => [row.reviewerId, row._count._all]),
+  );
+  const vouchCountByClient = new Map(
+    vouchCounts
+      .filter((row): row is typeof row & { referrerId: string } => row.referrerId !== null)
+      .map((row) => [row.referrerId, row._count._all]),
+  );
+
+  for (const clientProfileId of clientProfileIds) {
+    const uniqueWorkerIds = uniqueWorkersByClient.get(clientProfileId) ?? new Set<string>();
+    const employeeReviews = reviewCountByClient.get(clientProfileId) ?? 0;
+    statsMap.set(clientProfileId, {
+      peopleEmployed: uniqueWorkerIds.size,
+      jobsPosted: jobCountByClient.get(clientProfileId) ?? 0,
+      employeeReviews,
+      peopleConnected: uniqueWorkerIds.size,
+      workersVouching: vouchCountByClient.get(clientProfileId) ?? 0,
+      reviewsWritten: employeeReviews,
+    });
+  }
+
+  return statsMap;
 }
 
 export async function GET(request: Request) {
@@ -124,12 +163,17 @@ export async function GET(request: Request) {
 
     const entries: ConnectionNetworkEntry[] = [];
 
-    for (const connection of connections) {
-      const otherUser =
-        connection.userAId === userId ? connection.userB : connection.userA;
+    const otherUsers = connections
+      .map((connection) => (connection.userAId === userId ? connection.userB : connection.userA))
+      .filter((otherUser): otherUser is NonNullable<typeof otherUser> => Boolean(otherUser));
 
-      if (!otherUser) continue;
+    const clientProfileIds = otherUsers
+      .filter((otherUser) => otherUser.role === "CLIENT" && otherUser.clientProfile)
+      .map((otherUser) => otherUser.clientProfile!.id);
 
+    const clientStatsMap = await buildClientStatsMap(clientProfileIds);
+
+    for (const otherUser of otherUsers) {
       if (otherUser.role === "WORKER" && otherUser.workerProfile) {
         const summary = buildWorkerSummary(otherUser);
         if (summary) {
@@ -140,7 +184,14 @@ export async function GET(request: Request) {
           });
         }
       } else if (otherUser.role === "CLIENT" && otherUser.clientProfile) {
-        const stats = await buildClientStats(otherUser.clientProfile.id);
+        const stats = clientStatsMap.get(otherUser.clientProfile.id) ?? {
+          peopleEmployed: 0,
+          jobsPosted: 0,
+          employeeReviews: 0,
+          peopleConnected: 0,
+          workersVouching: 0,
+          reviewsWritten: 0,
+        };
         entries.push({
           userId: otherUser.id,
           role: "CLIENT",
