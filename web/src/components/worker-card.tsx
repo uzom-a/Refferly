@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import type { WorkerSummary } from "@/lib/types";
 
@@ -31,6 +31,8 @@ export function WorkerCard({
     (part) => part && part.length > 0,
   );
 
+  const [showTrustBreakdown, setShowTrustBreakdown] = useState(false);
+
   return (
     <div className="group flex flex-col justify-between rounded-2xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-5 text-sm shadow-md transition-all hover:border-indigo-400 hover:shadow-xl">
       <div className="flex items-start gap-4">
@@ -53,11 +55,39 @@ export function WorkerCard({
             </span>
           </div>
         </div>
-        <div className="text-right">
+        <div
+          className="relative text-right"
+          onMouseEnter={() => setShowTrustBreakdown(true)}
+          onMouseLeave={() => setShowTrustBreakdown(false)}
+        >
           <div className="text-[10px] font-medium uppercase tracking-wide text-slate-500">Trust</div>
-          <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
+          <div className="cursor-help text-2xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
             {worker.trust.total}
           </div>
+          {showTrustBreakdown && (
+            <div
+              role="tooltip"
+              className="absolute right-0 top-full z-20 mt-2 w-48 rounded-xl border border-slate-200 bg-white p-3 text-left text-[11px] shadow-xl"
+            >
+              <div className="mb-1.5 font-semibold text-slate-700">Trust score breakdown</div>
+              <div className="flex items-center justify-between text-slate-600">
+                <span>Sentiment</span>
+                <span className="font-medium text-slate-900">{worker.trust.sentiment}</span>
+              </div>
+              <div className="flex items-center justify-between text-slate-600">
+                <span>Referrals</span>
+                <span className="font-medium text-slate-900">{worker.trust.referrals}</span>
+              </div>
+              <div className="flex items-center justify-between text-slate-600">
+                <span>Verified jobs</span>
+                <span className="font-medium text-slate-900">{worker.trust.verified}</span>
+              </div>
+              <div className="mt-1.5 border-t border-slate-100 pt-1.5 flex items-center justify-between font-semibold text-slate-900">
+                <span>Total</span>
+                <span>{worker.trust.total}</span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="mt-4 space-y-2 text-[11px]">
