@@ -377,12 +377,12 @@ export default function ClientDashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 px-4 py-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-rose-50/30 px-4 py-6">
       <div className="mx-auto flex max-w-7xl flex-col gap-6">
         <header className="flex flex-col gap-2">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-rose-600 to-emerald-600 bg-clip-text text-transparent">
                 Welcome back, {firstName}
           </h1>
           <p className="text-sm text-slate-600">
@@ -405,7 +405,7 @@ export default function ClientDashboardPage() {
                 {showJobOffersPanel ? "Hide Jobs" : "My Jobs"}
               </Button>
               <Link href="/profile">
-                <Button size="sm" className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700">
+                <Button size="sm" className="bg-gradient-to-r from-rose-600 to-emerald-600 hover:from-rose-700 hover:to-emerald-700">
                   View Profile
                 </Button>
               </Link>
@@ -442,7 +442,7 @@ export default function ClientDashboardPage() {
             ) : (
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-rose-600 to-emerald-600 bg-clip-text text-transparent">
                     {networkStats.peopleConnected}
                   </div>
                   <div className="text-xs font-medium text-slate-600 mt-1">People connected</div>
@@ -454,7 +454,7 @@ export default function ClientDashboardPage() {
                   <div className="text-xs font-medium text-slate-600 mt-1">Workers vouching</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-amber-600 to-purple-600 bg-clip-text text-transparent">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-purple-600 bg-clip-text text-transparent">
                     {networkStats.reviewsWritten}
                   </div>
                   <div className="text-xs font-medium text-slate-600 mt-1">Reviews written</div>
@@ -473,7 +473,7 @@ export default function ClientDashboardPage() {
         {/* Main search */}
         <Card className="bg-gradient-to-br from-white to-slate-50 p-6 shadow-lg border-2 border-slate-200">
           <Link href="/search" className="block">
-            <Button className="w-full bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700">
+            <Button className="w-full bg-gradient-to-r from-rose-600 to-emerald-600 hover:from-rose-700 hover:to-emerald-700">
               Find trusted workers
             </Button>
           </Link>
@@ -497,7 +497,7 @@ export default function ClientDashboardPage() {
                 value={connectionQuery}
                 onChange={(event) => setConnectionQuery(event.target.value)}
                 placeholder="Search for clients or workers by name"
-                className="w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all"
+                className="w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-rose-500 focus:ring-2 focus:ring-rose-200 transition-all"
               />
               {connectionSendError && (
                 <div className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs font-medium text-red-700">
@@ -514,7 +514,7 @@ export default function ClientDashboardPage() {
             <div className="space-y-3">
               <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-slate-500">
                 <span>Suggested matches</span>
-                {connectionLoading && <span className="text-[10px] font-medium text-indigo-600">Searching...</span>}
+                {connectionLoading && <span className="text-[10px] font-medium text-rose-600">Searching...</span>}
               </div>
               {connectionQuery.trim().length === 0 ? (
                 <Card className="border border-dashed border-slate-200 bg-slate-50 p-4 text-center text-sm text-slate-500">
@@ -612,7 +612,7 @@ export default function ClientDashboardPage() {
           {/* Right side column */}
           <div className="space-y-4">
             {/* Referral path prompt */}
-            <Card className="bg-gradient-to-br from-amber-50 to-purple-50 p-5 shadow-lg border-2 border-amber-200">
+            <Card className="bg-gradient-to-br from-orange-50 to-purple-50 p-5 shadow-lg border-2 border-orange-200">
               <div className="space-y-3">
                 <div className="text-base font-bold text-slate-900">
                   See how trust flows to a worker
@@ -622,7 +622,7 @@ export default function ClientDashboardPage() {
                   network.
                 </p>
                 <Link href="/graph">
-                  <Button size="sm" className="bg-gradient-to-r from-amber-600 to-purple-600 hover:from-amber-700 hover:to-purple-700">
+                  <Button size="sm" className="bg-gradient-to-r from-orange-600 to-purple-600 hover:from-orange-700 hover:to-purple-700">
                     Open referral graph
                   </Button>
                 </Link>

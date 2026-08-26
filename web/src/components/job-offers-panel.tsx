@@ -124,14 +124,14 @@ export function JobOffersPanel({ userId, role }: JobOffersPanelProps) {
 
         {pendingJobs.length > 0 && (
           <section className="space-y-3">
-            <div className="text-xs font-semibold uppercase tracking-wide text-amber-600">
+            <div className="text-xs font-semibold uppercase tracking-wide text-orange-600">
               Pending ({pendingJobs.length})
             </div>
             <div className="space-y-2">
               {pendingJobs.map((job) => (
                 <Card
                   key={job.id}
-                  className="border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-4"
+                  className="border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-orange-50 p-4"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 space-y-1">
@@ -159,7 +159,7 @@ export function JobOffersPanel({ userId, role }: JobOffersPanelProps) {
                         </Button>
                         <Button
                           size="sm"
-                          className="text-xs bg-gradient-to-r from-indigo-600 to-emerald-600"
+                          className="text-xs bg-gradient-to-r from-rose-600 to-emerald-600"
                           onClick={() => handleUpdateJobStatus(job.id, "IN_PROGRESS")}
                           disabled={updatingId === job.id}
                         >
@@ -195,7 +195,7 @@ export function JobOffersPanel({ userId, role }: JobOffersPanelProps) {
                     {role === "CLIENT" && (
                       <Button
                         size="sm"
-                        className="text-xs bg-gradient-to-r from-emerald-600 to-indigo-600"
+                        className="text-xs bg-gradient-to-r from-emerald-600 to-rose-600"
                         onClick={() => handleUpdateJobStatus(job.id, "COMPLETED")}
                         disabled={updatingId === job.id}
                       >
@@ -223,7 +223,7 @@ export function JobOffersPanel({ userId, role }: JobOffersPanelProps) {
               {completedJobs.slice(0, 5).map((job) => (
                 <Card
                   key={job.id}
-                  className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-indigo-50 p-4"
+                  className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-rose-50 p-4"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 space-y-1">

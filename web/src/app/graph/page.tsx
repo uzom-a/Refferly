@@ -214,14 +214,14 @@ export default function GraphPage() {
 
             {/* Network Statistics */}
             {stats && (
-              <div className="mt-3 space-y-3 rounded-lg border-2 border-indigo-200 bg-gradient-to-br from-indigo-50 to-emerald-50 p-3">
-                <div className="text-[11px] font-semibold uppercase tracking-wide text-indigo-700">
+              <div className="mt-3 space-y-3 rounded-lg border-2 border-rose-200 bg-gradient-to-br from-rose-50 to-emerald-50 p-3">
+                <div className="text-[11px] font-semibold uppercase tracking-wide text-rose-700">
                   Network Stats
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-[10px]">
                   <div>
                     <div className="text-slate-600">Connections</div>
-                    <div className="text-base font-bold text-indigo-600">{stats.totalConnections}</div>
+                    <div className="text-base font-bold text-rose-600">{stats.totalConnections}</div>
                   </div>
                   <div>
                     <div className="text-slate-600">Workers</div>
@@ -233,13 +233,13 @@ export default function GraphPage() {
                   </div>
                   <div>
                     <div className="text-slate-600">Referrals</div>
-                    <div className="text-base font-bold text-amber-600">{stats.totalReferrals}</div>
+                    <div className="text-base font-bold text-orange-600">{stats.totalReferrals}</div>
                   </div>
                 </div>
                 {stats.averageTrustScore > 0 && (
-                  <div className="pt-2 border-t border-indigo-200">
+                  <div className="pt-2 border-t border-rose-200">
                     <div className="text-slate-600 text-[10px]">Avg Trust Score</div>
-                    <div className="text-lg font-bold text-indigo-600">{Math.round(stats.averageTrustScore)}</div>
+                    <div className="text-lg font-bold text-rose-600">{Math.round(stats.averageTrustScore)}</div>
                   </div>
                 )}
               </div>
@@ -263,8 +263,8 @@ export default function GraphPage() {
                       onClick={() => setFilters({ ...filters, distance: value })}
                       className={`rounded-full border-2 px-3 py-1 text-[11px] font-semibold transition-all ${
                         filters.distance === value
-                          ? "border-indigo-500 bg-indigo-50 text-indigo-700"
-                          : "border-neutral-200 bg-neutral-50 text-neutral-700 hover:border-indigo-300"
+                          ? "border-rose-500 bg-rose-50 text-rose-700"
+                          : "border-neutral-200 bg-neutral-50 text-neutral-700 hover:border-rose-300"
                       }`}
                     >
                       {label}
@@ -286,7 +286,7 @@ export default function GraphPage() {
                   onChange={(e) => setFilters({ ...filters, minTrust: parseInt(e.target.value) })}
                   className="w-full"
                 />
-                <div className="text-center text-xs font-semibold text-indigo-600">
+                <div className="text-center text-xs font-semibold text-rose-600">
                   {filters.minTrust}
                 </div>
                 <div className="flex justify-between text-[11px] text-neutral-500">

@@ -180,7 +180,7 @@ export default function ProfilePage() {
 
   if (!hydrated || loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30">
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50/30 to-rose-50/30">
         <Card className="w-full max-w-sm text-center text-sm text-slate-600">
           Loading your profile...
         </Card>
@@ -196,10 +196,10 @@ export default function ProfilePage() {
     const onboardingLink =
       user.role === "WORKER" ? "/onboarding/worker" : "/onboarding/client";
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 px-4 py-6">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-rose-50/30 px-4 py-6">
         <div className="mx-auto flex max-w-7xl flex-col gap-6">
           <header className="flex flex-col gap-2">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-rose-600 to-emerald-600 bg-clip-text text-transparent">
               Your Profile
             </h1>
           </header>
@@ -209,7 +209,7 @@ export default function ProfilePage() {
                 {error}
               </div>
               <Link href={onboardingLink}>
-                <Button className="w-full bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700">
+                <Button className="w-full bg-gradient-to-r from-rose-600 to-emerald-600 hover:from-rose-700 hover:to-emerald-700">
                   Complete your profile
                 </Button>
               </Link>
@@ -250,17 +250,17 @@ export default function ProfilePage() {
     };
 
     const getTradeColor = (trade: string) => {
-      if (trade === "Electrician") return "bg-gradient-to-br from-amber-500 to-orange-600";
+      if (trade === "Electrician") return "bg-gradient-to-br from-orange-500 to-orange-600";
       if (trade === "Plumber") return "bg-gradient-to-br from-blue-500 to-cyan-600";
-      if (trade === "Cleaner") return "bg-gradient-to-br from-emerald-500 to-indigo-600";
-      return "bg-gradient-to-br from-amber-500 to-purple-600";
+      if (trade === "Cleaner") return "bg-gradient-to-br from-emerald-500 to-rose-600";
+      return "bg-gradient-to-br from-orange-500 to-purple-600";
     };
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 px-4 py-6">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-rose-50/30 px-4 py-6">
         <div className="mx-auto flex max-w-7xl flex-col gap-6">
           {/* Large Profile Card */}
-          <div className="group mx-auto flex w-full max-w-4xl flex-col justify-between rounded-2xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 text-sm shadow-md transition-all hover:border-indigo-400 hover:shadow-xl">
+          <div className="group mx-auto flex w-full max-w-4xl flex-col justify-between rounded-2xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-6 text-sm shadow-md transition-all hover:border-rose-400 hover:shadow-xl">
             <div className="flex items-start gap-6">
               <div className={`flex h-20 w-20 items-center justify-center rounded-xl ${getTradeColor(workerSummary.trade)} text-lg font-bold text-white shadow-lg`}>
                 {workerSummary.name
@@ -272,7 +272,7 @@ export default function ProfilePage() {
               <div className="flex-1 space-y-2">
                 <div className="text-2xl font-semibold text-slate-900">{workerSummary.name}</div>
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="rounded-full bg-indigo-100 px-3 py-1 font-medium text-indigo-700">
+                  <span className="rounded-full bg-rose-100 px-3 py-1 font-medium text-rose-700">
                     {workerSummary.trade}
                   </span>
                   <span className="text-slate-500">·</span>
@@ -281,7 +281,7 @@ export default function ProfilePage() {
               </div>
               <div className="text-right">
                 <div className="text-xs font-medium uppercase tracking-wide text-slate-500">Trust</div>
-                <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
+                <div className="text-4xl font-bold bg-gradient-to-r from-rose-600 to-emerald-600 bg-clip-text text-transparent">
                   {workerSummary.trust.total}
                 </div>
               </div>
@@ -302,7 +302,7 @@ export default function ProfilePage() {
                 {workerSummary.sentimentTags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-gradient-to-r from-amber-100 to-purple-100 px-3 py-1 text-xs font-medium text-amber-700"
+                    className="rounded-full bg-gradient-to-r from-orange-100 to-purple-100 px-3 py-1 text-xs font-medium text-orange-700"
                   >
                     {tag}
                   </span>
@@ -329,7 +329,7 @@ export default function ProfilePage() {
             <div className="mt-8 flex items-center justify-between gap-4 pt-6 border-t border-slate-200">
               <Link
                 href={`/graph?focus=${encodeURIComponent(workerSummary.id)}`}
-                className="text-sm font-medium text-indigo-600 underline-offset-2 hover:text-indigo-700 hover:underline"
+                className="text-sm font-medium text-rose-600 underline-offset-2 hover:text-rose-700 hover:underline"
               >
                 Graph →
               </Link>
@@ -340,7 +340,7 @@ export default function ProfilePage() {
                   </Button>
                 </Link>
                 <Link href="/dashboard/worker">
-                  <Button size="lg" className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700">
+                  <Button size="lg" className="bg-gradient-to-r from-rose-600 to-emerald-600 hover:from-rose-700 hover:to-emerald-700">
                     Back to Dashboard
                   </Button>
                 </Link>
@@ -356,7 +356,7 @@ export default function ProfilePage() {
   // Client Profile View
   if (user.role === "CLIENT" && clientProfile && clientStats) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 px-4 py-6">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-rose-50/30 px-4 py-6">
         <div className="mx-auto flex max-w-7xl flex-col gap-6">
           <ClientCard
             name={clientProfile.name}
@@ -369,7 +369,7 @@ export default function ProfilePage() {
               <div className="flex items-center justify-between gap-4">
                 <Link
                   href={`/graph?focus=${encodeURIComponent(clientProfile.id)}`}
-                  className="text-sm font-medium text-indigo-600 underline-offset-2 hover:text-indigo-700 hover:underline"
+                  className="text-sm font-medium text-rose-600 underline-offset-2 hover:text-rose-700 hover:underline"
                 >
                   Graph →
                 </Link>
@@ -380,7 +380,7 @@ export default function ProfilePage() {
                     </Button>
                   </Link>
                   <Link href="/dashboard/client">
-                    <Button size="lg" className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700">
+                    <Button size="lg" className="bg-gradient-to-r from-rose-600 to-emerald-600 hover:from-rose-700 hover:to-emerald-700">
                       Back to Dashboard
                     </Button>
                   </Link>

@@ -140,7 +140,7 @@ export default function SearchPage() {
       <Link href={`/workers/${worker.id}`} className="flex-shrink-0">
         <Button
           size="sm"
-          className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700"
+          className="bg-gradient-to-r from-rose-600 to-emerald-600 hover:from-rose-700 hover:to-emerald-700"
         >
           Hire
         </Button>
@@ -150,7 +150,7 @@ export default function SearchPage() {
     if (worker.isDirectConnection) {
       return (
         <div className="flex w-full flex-wrap items-center justify-between gap-3">
-          <div className="text-xs font-semibold text-indigo-700">Direct connection</div>
+          <div className="text-xs font-semibold text-rose-700">Direct connection</div>
           {hireButton}
         </div>
       );
@@ -174,12 +174,12 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 px-4 py-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-rose-50/30 px-4 py-6">
       <div className="mx-auto flex max-w-7xl flex-col gap-6">
         {/* Top bar search */}
         <section className="space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-rose-600 to-emerald-600 bg-clip-text text-transparent">
               Search workers
             </h1>
             <Link href="/dashboard/client">
@@ -205,7 +205,7 @@ export default function SearchPage() {
                 placeholder="Worker or trade"
                 value={tradeQuery}
                 onChange={(event) => setTradeQuery(event.target.value)}
-                className="w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                className="w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm outline-none transition-all focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
               />
               <div className="max-md:space-y-2 md:self-stretch">
                 <LocationSearchInput
@@ -217,7 +217,7 @@ export default function SearchPage() {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 md:w-auto"
+                className="w-full bg-gradient-to-r from-rose-600 to-emerald-600 hover:from-rose-700 hover:to-emerald-700 md:w-auto"
                 disabled={!normalizedTrade || !locationOption || loading}
               >
                 {loading ? "Searching..." : "Search now"}
@@ -228,7 +228,7 @@ export default function SearchPage() {
           {/* Filter row */}
           <div className="flex flex-wrap items-center gap-3 text-xs">
             <select
-              className="rounded-full border-2 border-amber-200 bg-gradient-to-r from-amber-50 to-purple-50 px-4 py-2 font-semibold text-amber-700 focus:border-amber-400 focus:ring-2 focus:ring-amber-200 transition-all"
+              className="rounded-full border-2 border-orange-200 bg-gradient-to-r from-orange-50 to-purple-50 px-4 py-2 font-semibold text-orange-700 focus:border-orange-400 focus:ring-2 focus:ring-orange-200 transition-all"
               value={sortFilter}
               onChange={(event) => setSortFilter(event.target.value as typeof sortFilter)}
             >
@@ -237,7 +237,7 @@ export default function SearchPage() {
               <option value="network">Sort by: My network only</option>
             </select>
             <select
-              className="rounded-full border-2 border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-2 font-semibold text-amber-700 focus:border-amber-400 focus:ring-2 focus:ring-amber-200 transition-all"
+              className="rounded-full border-2 border-orange-200 bg-gradient-to-r from-orange-50 to-orange-50 px-4 py-2 font-semibold text-orange-700 focus:border-orange-400 focus:ring-2 focus:ring-orange-200 transition-all"
               value={distanceFilter}
               onChange={(event) => setDistanceFilter(event.target.value)}
             >
@@ -260,7 +260,7 @@ export default function SearchPage() {
               {!loading && hasSearched && (
                 <>
                   Showing{" "}
-                  <span className="font-bold text-indigo-600">{filteredWorkers.length}</span>{" "}
+                  <span className="font-bold text-rose-600">{filteredWorkers.length}</span>{" "}
                   workers for{" "}
                   <span className="font-semibold text-slate-900">{lastQuery?.trade}</span> in{" "}
                   <span className="font-semibold text-slate-900">{lastQuery?.location}</span>

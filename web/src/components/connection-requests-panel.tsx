@@ -151,7 +151,7 @@ export function ConnectionRequestsPanel({ userId }: ConnectionRequestsPanelProps
                         </Button>
                         <Button
                           size="sm"
-                          className="flex-1 bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700"
+                          className="flex-1 bg-gradient-to-r from-rose-600 to-emerald-600 hover:from-rose-700 hover:to-emerald-700"
                           onClick={() => handleAccept(request.requestId)}
                           disabled={acceptingId === request.requestId || decliningId === request.requestId}
                         >
