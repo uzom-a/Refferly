@@ -6,6 +6,8 @@ import { GraphPreview } from "@/components/graph-preview";
 import { ProfileButton } from "@/components/profile-button";
 import { getWorkerSummaries } from "@/lib/workers";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const workers = await getWorkerSummaries({ limit: 2 });
   const featuredWorker = workers[0] ?? null;
