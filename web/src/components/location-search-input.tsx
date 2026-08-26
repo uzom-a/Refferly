@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export interface LocationOption {
@@ -30,6 +30,7 @@ export function LocationSearchInput({
   required,
 }: LocationSearchInputProps) {
   const [query, setQuery] = useState(selected?.label ?? "");
+  const listboxId = useId();
   const [results, setResults] = useState<LocationOption[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -118,6 +119,9 @@ export function LocationSearchInput({
           className="w-full rounded-xl border border-neutral-200 bg-white px-3 py-2 text-sm outline-none focus:border-neutral-900"
           aria-autocomplete="list"
           aria-expanded={open}
+          aria-haspopup="listbox"
+          aria-controls={listboxId}
+          role="combobox"
         />
         {loading && (
           <div className="absolute right-3 top-2 text-[10px] text-neutral-400">Searching...</div>
@@ -141,11 +145,17 @@ export function LocationSearchInput({
       {error && <p className="text-[11px] text-red-600">{error}</p>}
       {hint && <p className="text-[11px] text-neutral-600">Selected: {hint}</p>}
       {open && results.length > 0 && (
-        <div className="z-10 mt-1 max-h-60 overflow-auto rounded-xl border border-neutral-200 bg-white shadow-lg">
+        <div
+          id={listboxId}
+          role="listbox"
+          className="z-10 mt-1 max-h-60 overflow-auto rounded-xl border border-neutral-200 bg-white shadow-lg"
+        >
           {results.map((result) => (
             <button
               key={result.id}
               type="button"
+              role="option"
+              aria-selected={selected?.id === result.id}
               onClick={() => {
                 onSelect(result);
                 setOpen(false);
