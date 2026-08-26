@@ -9,6 +9,23 @@ import { LocationSearchInput, type LocationOption } from "@/components/location-
 import { useUserStore } from "@/store/user-store";
 import type { AuthUser, WorkerSummary } from "@/lib/types";
 
+function WorkerCardSkeleton() {
+  return (
+    <div className="animate-pulse rounded-2xl border-2 border-slate-200 bg-white p-5">
+      <div className="flex items-start gap-4">
+        <div className="h-12 w-12 rounded-xl bg-slate-200" />
+        <div className="flex-1 space-y-2">
+          <div className="h-3.5 w-1/3 rounded bg-slate-200" />
+          <div className="h-3 w-1/2 rounded bg-slate-100" />
+        </div>
+        <div className="h-6 w-10 rounded bg-slate-200" />
+      </div>
+      <div className="mt-4 h-3 w-2/3 rounded bg-slate-100" />
+      <div className="mt-4 h-8 w-full rounded-xl bg-slate-100" />
+    </div>
+  );
+}
+
 export default function SearchPage() {
   const { user, setUser } = useUserStore();
   const [userHydrated, setUserHydrated] = useState(false);
@@ -265,7 +282,15 @@ export default function SearchPage() {
               </Card>
             )}
 
-            {filteredWorkers.length > 0 && (
+            {loading && (
+              <div className="space-y-3">
+                {Array.from({ length: 3 }).map((_, index) => (
+                  <WorkerCardSkeleton key={index} />
+                ))}
+              </div>
+            )}
+
+            {!loading && filteredWorkers.length > 0 && (
               <div className="space-y-3">
                 {filteredWorkers.map((worker) => (
                   <div key={worker.id} className="space-y-1">
