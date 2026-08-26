@@ -129,6 +129,9 @@ export default function ProfilePage() {
     return () => {
       active = false;
     };
+    // Only re-run when the user's id/role change, not on every `user` object
+    // reference update, since `currentUser` is captured once per run above.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hydrated, user?.id, user?.role]);
 
   // Fetch connections network
