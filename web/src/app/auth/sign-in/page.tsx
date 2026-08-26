@@ -92,7 +92,7 @@ function SignInInner() {
           <span className="text-white/60">Network-backed reputation</span>
         </div>
         <div className="relative z-10 max-w-md space-y-4">
-          <p className="text-[11px] font-medium text-teal-100">
+          <p className="text-[11px] font-medium text-indigo-100">
             For people who do not trust random reviews
           </p>
           <h1 className="text-3xl font-semibold leading-tight text-slate-50">
@@ -163,7 +163,7 @@ function SignInInner() {
                   type="text"
                   value={name}
                   onChange={(event) => setName(event.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-teal-700"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-indigo-700"
                   placeholder="Jane Doe"
                 />
               </div>
@@ -180,7 +180,7 @@ function SignInInner() {
                 type="email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-teal-700"
+                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-indigo-700"
                 placeholder="you@example.com"
               />
             </div>
@@ -196,7 +196,7 @@ function SignInInner() {
                 type="password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-teal-700"
+                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-indigo-700"
                 placeholder="••••••••"
               />
             </div>

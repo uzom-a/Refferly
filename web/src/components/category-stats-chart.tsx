@@ -40,7 +40,7 @@ export function CategoryStatsChart({
               <div className="flex-1 rounded-full bg-neutral-100">
                 <div
                   className={`h-2 rounded-full ${
-                    isCurrent ? "bg-teal-600" : "bg-slate-400"
+                    isCurrent ? "bg-indigo-600" : "bg-slate-400"
                   }`}
                   style={{ width: `${width}%` }}
                 />

@@ -8,13 +8,13 @@ export interface ButtonProps
 }
 
 const baseClasses =
-  "inline-flex items-center justify-center rounded-full font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-700 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.99]";
+  "inline-flex items-center justify-center rounded-full font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.99]";
 
 const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
   default:
-    "bg-teal-600 text-white hover:bg-teal-700 shadow-sm hover:shadow-md",
+    "bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm hover:shadow-md",
   outline:
-    "border border-teal-600/20 bg-white text-teal-700 hover:bg-teal-50",
+    "border border-indigo-600/20 bg-white text-indigo-700 hover:bg-indigo-50",
   ghost:
     "bg-transparent text-slate-800 hover:bg-slate-100 dark:text-slate-100",
 };

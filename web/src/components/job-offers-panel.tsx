@@ -159,7 +159,7 @@ export function JobOffersPanel({ userId, role }: JobOffersPanelProps) {
                         </Button>
                         <Button
                           size="sm"
-                          className="text-xs bg-gradient-to-r from-teal-600 to-emerald-600"
+                          className="text-xs bg-gradient-to-r from-indigo-600 to-emerald-600"
                           onClick={() => handleUpdateJobStatus(job.id, "IN_PROGRESS")}
                           disabled={updatingId === job.id}
                         >
@@ -195,7 +195,7 @@ export function JobOffersPanel({ userId, role }: JobOffersPanelProps) {
                     {role === "CLIENT" && (
                       <Button
                         size="sm"
-                        className="text-xs bg-gradient-to-r from-emerald-600 to-teal-600"
+                        className="text-xs bg-gradient-to-r from-emerald-600 to-indigo-600"
                         onClick={() => handleUpdateJobStatus(job.id, "COMPLETED")}
                         disabled={updatingId === job.id}
                       >
@@ -223,7 +223,7 @@ export function JobOffersPanel({ userId, role }: JobOffersPanelProps) {
               {completedJobs.slice(0, 5).map((job) => (
                 <Card
                   key={job.id}
-                  className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-4"
+                  className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-indigo-50 p-4"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 space-y-1">

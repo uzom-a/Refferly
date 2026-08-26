@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Lexend_Deca } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const lexendDeca = Lexend_Deca({
-  variable: "--font-lexend",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
 });
 
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lexendDeca.variable} antialiased bg-slate-50 text-slate-900`}
+        className={`${plusJakartaSans.variable} antialiased bg-slate-50 text-slate-900`}
       >
         {children}
       </body>

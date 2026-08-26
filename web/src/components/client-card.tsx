@@ -16,9 +16,9 @@ interface ClientCardProps {
 }
 
 const statMeta: Array<{ key: keyof ClientProfileStats; label: string; gradient: string }> = [
-  { key: "peopleEmployed", label: "People Employed", gradient: "from-teal-600 to-emerald-600" },
+  { key: "peopleEmployed", label: "People Employed", gradient: "from-indigo-600 to-emerald-600" },
   { key: "jobsPosted", label: "Jobs Posted", gradient: "from-blue-600 to-cyan-600" },
-  { key: "employeeReviews", label: "Employee Reviews", gradient: "from-violet-600 to-purple-600" },
+  { key: "employeeReviews", label: "Employee Reviews", gradient: "from-amber-600 to-purple-600" },
   { key: "peopleConnected", label: "People Connected", gradient: "from-amber-600 to-orange-600" },
   { key: "workersVouching", label: "Workers Vouching", gradient: "from-indigo-600 to-blue-600" },
   { key: "reviewsWritten", label: "Reviews Written", gradient: "from-pink-600 to-rose-600" },
@@ -45,15 +45,15 @@ export function ClientCard({
   );
 
   return (
-    <Card className="group flex flex-col justify-between rounded-2xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-5 text-sm shadow-md transition-all hover:border-teal-400 hover:shadow-xl">
+    <Card className="group flex flex-col justify-between rounded-2xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-5 text-sm shadow-md transition-all hover:border-indigo-400 hover:shadow-xl">
       <div className="flex items-start gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 text-xs font-bold text-white shadow-lg">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-emerald-600 text-xs font-bold text-white shadow-lg">
           {initials}
         </div>
         <div className="flex-1 space-y-1.5">
           <div className="font-semibold text-slate-900">{name}</div>
           <div className="flex items-center gap-2 text-xs">
-            <span className="rounded-full bg-teal-100 px-2.5 py-0.5 font-medium text-teal-700">
+            <span className="rounded-full bg-indigo-100 px-2.5 py-0.5 font-medium text-indigo-700">
               {badgeLabel}
             </span>
             <span className="text-slate-500">·</span>

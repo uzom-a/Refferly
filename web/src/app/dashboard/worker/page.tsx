@@ -252,12 +252,12 @@ export default function WorkerDashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/30 px-4 py-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 px-4 py-6">
       <div className="mx-auto flex max-w-7xl flex-col gap-6">
         <header className="flex flex-col gap-2">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
                 Welcome back, {displayName}
               </h1>
               <p className="text-sm text-slate-600">
@@ -280,7 +280,7 @@ export default function WorkerDashboardPage() {
                 {showJobOffersPanel ? "Hide Jobs" : "Job Offers"}
               </Button>
               <Link href="/profile">
-                <Button size="sm" className="bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700">
+                <Button size="sm" className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700">
                   View Profile
                 </Button>
               </Link>
@@ -304,10 +304,10 @@ export default function WorkerDashboardPage() {
 
         {/* Key metrics */}
         <div className="grid gap-4 md:grid-cols-3">
-          <Card className="bg-gradient-to-br from-teal-50 to-emerald-50 p-6 shadow-lg border-2 border-teal-200">
+          <Card className="bg-gradient-to-br from-indigo-50 to-emerald-50 p-6 shadow-lg border-2 border-indigo-200">
             <div className="space-y-2">
-              <div className="text-xs font-semibold uppercase tracking-wide text-teal-700">Trust score</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+              <div className="text-xs font-semibold uppercase tracking-wide text-indigo-700">Trust score</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
                 {stats.trustScore}
               </div>
             </div>
@@ -320,10 +320,10 @@ export default function WorkerDashboardPage() {
               </div>
             </div>
           </Card>
-          <Card className="bg-gradient-to-br from-violet-50 to-purple-50 p-6 shadow-lg border-2 border-violet-200">
+          <Card className="bg-gradient-to-br from-amber-50 to-purple-50 p-6 shadow-lg border-2 border-amber-200">
             <div className="space-y-2">
-              <div className="text-xs font-semibold uppercase tracking-wide text-violet-700">Verified jobs</div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+              <div className="text-xs font-semibold uppercase tracking-wide text-amber-700">Verified jobs</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-amber-600 to-purple-600 bg-clip-text text-transparent">
                 {stats.verifiedJobs}
               </div>
             </div>
@@ -391,7 +391,7 @@ export default function WorkerDashboardPage() {
                 value={connectionQuery}
                 onChange={(event) => setConnectionQuery(event.target.value)}
                 placeholder="Search for clients or workers by name"
-                className="w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition-all"
+                className="w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all"
               />
               {connectionSendError && (
                 <div className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs font-medium text-red-700">
@@ -408,7 +408,7 @@ export default function WorkerDashboardPage() {
             <div className="space-y-3">
               <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-slate-500">
                 <span>Suggested matches</span>
-                {connectionLoading && <span className="text-[10px] font-medium text-teal-600">Searching...</span>}
+                {connectionLoading && <span className="text-[10px] font-medium text-indigo-600">Searching...</span>}
               </div>
               {connectionQuery.trim().length === 0 ? (
                 <Card className="border border-dashed border-slate-200 bg-slate-50 p-4 text-center text-sm text-slate-500">

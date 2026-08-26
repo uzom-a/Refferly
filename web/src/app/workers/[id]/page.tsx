@@ -110,8 +110,8 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
   const getTradeColor = (trade: string) => {
     if (trade === "Electrician") return "from-amber-500 to-orange-600";
     if (trade === "Plumber") return "from-blue-500 to-cyan-600";
-    if (trade === "Cleaner") return "from-emerald-500 to-teal-600";
-    return "from-violet-500 to-purple-600";
+    if (trade === "Cleaner") return "from-emerald-500 to-indigo-600";
+    return "from-amber-500 to-purple-600";
   };
 
   if (loading) {
@@ -133,7 +133,7 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
             {error ?? "This profile does not exist yet."}
           </p>
           <Link href="/search">
-            <Button className="w-full bg-gradient-to-r from-teal-600 to-emerald-600">
+            <Button className="w-full bg-gradient-to-r from-indigo-600 to-emerald-600">
               Back to search
             </Button>
           </Link>
@@ -143,17 +143,17 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/30 px-4 py-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 px-4 py-6">
       <div className="mx-auto flex max-w-5xl flex-col gap-6">
         {/* Top bar */}
         <div className="flex items-center justify-between">
           <Link
             href="/search"
-            className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors"
+            className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors"
           >
             <span>←</span> Back to results
           </Link>
-          <Button className="bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700">
+          <Button className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700">
             Request this worker
           </Button>
         </div>
@@ -172,7 +172,7 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
               <div className="space-y-2 flex-1">
                 <div className="text-xl font-bold text-slate-900">{worker.name}</div>
                 <div className="flex items-center gap-2">
-                  <span className="rounded-full bg-gradient-to-r from-teal-100 to-emerald-100 px-3 py-1 text-xs font-semibold text-teal-700">
+                  <span className="rounded-full bg-gradient-to-r from-indigo-100 to-emerald-100 px-3 py-1 text-xs font-semibold text-indigo-700">
                     {worker.trade}
                   </span>
                   <span className="text-sm text-slate-500">·</span>
@@ -188,18 +188,18 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
             </div>
           </Card>
 
-          <Card className="bg-gradient-to-br from-teal-50 to-emerald-50 p-6 shadow-lg border-2 border-teal-200">
+          <Card className="bg-gradient-to-br from-indigo-50 to-emerald-50 p-6 shadow-lg border-2 border-indigo-200">
             <div className="space-y-3">
-              <div className="text-xs font-semibold uppercase tracking-wide text-teal-700">
+              <div className="text-xs font-semibold uppercase tracking-wide text-indigo-700">
                 Trust score
               </div>
-              <div className="text-4xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+              <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
                 {worker.trust.total} <span className="text-lg text-slate-500">/ 100</span>
               </div>
-              <div className="space-y-2 pt-2 border-t border-teal-200">
+              <div className="space-y-2 pt-2 border-t border-indigo-200">
                 <div className="flex items-center justify-between text-xs">
                   <span className="font-medium text-slate-700">Sentiment</span>
-                  <span className="font-bold text-teal-600">{worker.trust.sentiment}</span>
+                  <span className="font-bold text-indigo-600">{worker.trust.sentiment}</span>
                 </div>
                 <div className="flex items-center justify-between text-xs">
                   <span className="font-medium text-slate-700">Referrals</span>
@@ -215,14 +215,14 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
         </section>
 
         {/* Sentiment summary */}
-        <Card className="bg-gradient-to-br from-violet-50 to-purple-50 p-6 shadow-lg border-2 border-violet-200">
+        <Card className="bg-gradient-to-br from-amber-50 to-purple-50 p-6 shadow-lg border-2 border-amber-200">
           <div className="space-y-4">
             <div className="text-base font-bold text-slate-900">What people keep saying</div>
             <div className="flex flex-wrap gap-2">
               {worker.sentimentTags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-gradient-to-r from-violet-100 to-purple-100 px-4 py-2 text-xs font-semibold text-violet-700 shadow-sm"
+                  className="rounded-full bg-gradient-to-r from-amber-100 to-purple-100 px-4 py-2 text-xs font-semibold text-amber-700 shadow-sm"
                 >
                   {tag}
                 </span>
@@ -250,7 +250,7 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
                   return (
                     <div
                       key={job.id}
-                      className="flex items-center justify-between gap-4 rounded-xl border-l-4 border-emerald-500 bg-gradient-to-r from-emerald-50 to-teal-50 p-4 shadow-sm"
+                      className="flex items-center justify-between gap-4 rounded-xl border-l-4 border-emerald-500 bg-gradient-to-r from-emerald-50 to-indigo-50 p-4 shadow-sm"
                     >
                       <div className="space-y-1">
                         <div className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
@@ -277,7 +277,7 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
             <div className="flex items-center justify-between">
               <div className="text-base font-bold text-slate-900">Reviews</div>
               <button
-                className="text-sm font-medium text-teal-600 underline-offset-2 hover:text-teal-700 hover:underline"
+                className="text-sm font-medium text-indigo-600 underline-offset-2 hover:text-indigo-700 hover:underline"
                 onClick={() => {
                   if (availableJobs.length > 0) {
                     setSelectedJobId(availableJobs[0].id);
@@ -289,18 +289,18 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
               </button>
             </div>
             {aggregatedRatings && reviews.length > 0 && (
-              <div className="mb-4 rounded-xl border-2 border-teal-200 bg-gradient-to-br from-teal-50 to-emerald-50 p-4">
-                <div className="text-xs font-semibold uppercase tracking-wide text-teal-700 mb-3">
+              <div className="mb-4 rounded-xl border-2 border-indigo-200 bg-gradient-to-br from-indigo-50 to-emerald-50 p-4">
+                <div className="text-xs font-semibold uppercase tracking-wide text-indigo-700 mb-3">
                   Overall Ratings
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
                   <div>
                     <div className="text-slate-600">Overall</div>
-                    <div className="text-lg font-bold text-teal-600">{aggregatedRatings.overall.toFixed(1)}/5</div>
+                    <div className="text-lg font-bold text-indigo-600">{aggregatedRatings.overall.toFixed(1)}/5</div>
                   </div>
                   <div>
                     <div className="text-slate-600">Sentiment</div>
-                    <div className="text-lg font-bold text-violet-600">{(aggregatedRatings.sentiment * 100).toFixed(0)}%</div>
+                    <div className="text-lg font-bold text-amber-600">{(aggregatedRatings.sentiment * 100).toFixed(0)}%</div>
                   </div>
                   <div>
                     <div className="text-slate-600">Punctuality</div>
@@ -339,7 +339,7 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
                         </div>
                         <span className={`rounded-full px-3 py-1 text-[10px] font-semibold ${
                             r.isReferralBased
-                              ? "bg-gradient-to-r from-violet-100 to-purple-100 text-violet-700"
+                              ? "bg-gradient-to-r from-amber-100 to-purple-100 text-amber-700"
                               : "bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700"
                           }`}>
                           {r.isReferralBased ? "From referral" : "Direct"}
@@ -360,7 +360,7 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-slate-600">Skill</span>
-                          <span className="font-bold text-violet-600">{r.ratings.skill}/5</span>
+                          <span className="font-bold text-amber-600">{r.ratings.skill}/5</span>
                         </div>
                       </div>
                       <p className="text-sm text-slate-800 mb-2">{r.text}</p>
@@ -369,7 +369,7 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
                           Sentiment: {(r.sentimentScore * 100).toFixed(0)}%
                         </span>
                         {r.isReferralBased && (
-                          <button className="text-xs font-medium text-teal-600 underline-offset-2 hover:text-teal-700 hover:underline">
+                          <button className="text-xs font-medium text-indigo-600 underline-offset-2 hover:text-indigo-700 hover:underline">
                             See referral path →
                           </button>
                         )}
@@ -429,7 +429,7 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
           </Button>
           <Button
             size="lg"
-            className="bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700"
+            className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700"
             onClick={async () => {
               if (!user?.id) {
                 alert("Please sign in to request work from this worker.");

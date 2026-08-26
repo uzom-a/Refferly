@@ -23,8 +23,8 @@ export function WorkerCard({
   const getTradeColor = (trade: string) => {
     if (trade === "Electrician") return "bg-gradient-to-br from-amber-500 to-orange-600";
     if (trade === "Plumber") return "bg-gradient-to-br from-blue-500 to-cyan-600";
-    if (trade === "Cleaner") return "bg-gradient-to-br from-emerald-500 to-teal-600";
-    return "bg-gradient-to-br from-violet-500 to-purple-600";
+    if (trade === "Cleaner") return "bg-gradient-to-br from-emerald-500 to-indigo-600";
+    return "bg-gradient-to-br from-amber-500 to-purple-600";
   };
 
   const locationParts = [worker.city, worker.state ?? "", worker.country ?? ""].filter(
@@ -32,7 +32,7 @@ export function WorkerCard({
   );
 
   return (
-    <div className="group flex flex-col justify-between rounded-2xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-5 text-sm shadow-md transition-all hover:border-teal-400 hover:shadow-xl">
+    <div className="group flex flex-col justify-between rounded-2xl border-2 border-slate-200 bg-gradient-to-br from-white to-slate-50 p-5 text-sm shadow-md transition-all hover:border-indigo-400 hover:shadow-xl">
       <div className="flex items-start gap-4">
         <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${getTradeColor(worker.trade)} text-xs font-bold text-white shadow-lg`}>
           {worker.name
@@ -44,7 +44,7 @@ export function WorkerCard({
         <div className="flex-1 space-y-1.5">
           <div className="font-semibold text-slate-900">{worker.name}</div>
           <div className="flex items-center gap-2 text-xs">
-            <span className="rounded-full bg-teal-100 px-2.5 py-0.5 font-medium text-teal-700">
+            <span className="rounded-full bg-indigo-100 px-2.5 py-0.5 font-medium text-indigo-700">
               {worker.trade}
             </span>
             <span className="text-slate-500">·</span>
@@ -55,7 +55,7 @@ export function WorkerCard({
         </div>
         <div className="text-right">
           <div className="text-[10px] font-medium uppercase tracking-wide text-slate-500">Trust</div>
-          <div className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">
+          <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
             {worker.trust.total}
           </div>
         </div>
@@ -75,7 +75,7 @@ export function WorkerCard({
           {worker.sentimentTags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-gradient-to-r from-violet-100 to-purple-100 px-2.5 py-1 text-[10px] font-medium text-violet-700"
+              className="rounded-full bg-gradient-to-r from-amber-100 to-purple-100 px-2.5 py-1 text-[10px] font-medium text-amber-700"
             >
               {tag}
             </span>
@@ -95,7 +95,7 @@ export function WorkerCard({
           <>
             <Button
               size="sm"
-              className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700"
+              className="w-full bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700"
               onClick={onAction}
               disabled={actionDisabled}
             >
@@ -103,7 +103,7 @@ export function WorkerCard({
             </Button>
             <Link
               href={`/graph?focus=${encodeURIComponent(worker.id)}`}
-              className="text-xs font-medium text-teal-600 underline-offset-2 hover:text-teal-700 hover:underline"
+              className="text-xs font-medium text-indigo-600 underline-offset-2 hover:text-indigo-700 hover:underline"
             >
               Graph →
             </Link>
@@ -113,14 +113,14 @@ export function WorkerCard({
             <Link href={`/workers/${worker.id}`} className="flex-1">
               <Button
                 size="sm"
-                className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700"
+                className="w-full bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700"
               >
                 Hire
               </Button>
             </Link>
             <Link
               href={`/graph?focus=${encodeURIComponent(worker.id)}`}
-              className="text-xs font-medium text-teal-600 underline-offset-2 hover:text-teal-700 hover:underline"
+              className="text-xs font-medium text-indigo-600 underline-offset-2 hover:text-indigo-700 hover:underline"
             >
               Graph →
             </Link>
