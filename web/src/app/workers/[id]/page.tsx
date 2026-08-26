@@ -478,7 +478,6 @@ export default function WorkerProfilePage({ params }: WorkerProfilePageProps) {
           setSelectedJobId(null);
         }}
         jobId={selectedJobId || undefined}
-        workerId={worker?.id || ""}
         onSuccess={async () => {
           // Refetch worker data to show new review
           try {

@@ -8,11 +8,10 @@ interface ReviewModalProps {
   open: boolean;
   onClose: () => void;
   jobId?: string;
-  workerId: string;
   onSuccess?: () => void;
 }
 
-export function ReviewModal({ open, onClose, jobId, workerId, onSuccess }: ReviewModalProps) {
+export function ReviewModal({ open, onClose, jobId, onSuccess }: ReviewModalProps) {
   const { user } = useUserStore();
   const [text, setText] = useState("");
   const [punctuality, setPunctuality] = useState(4);
