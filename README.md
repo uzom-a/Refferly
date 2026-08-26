@@ -1,8 +1,8 @@
-# TrustNet
+# Refferly
 
-A network-backed reputation platform for finding trusted workers through verified referrals from your own connections. TrustNet helps you discover electricians, plumbers, cleaners, and handymen recommended by people you actually know—not random internet reviews.
+A network-backed reputation platform for finding trusted workers through verified referrals from your own connections. Refferly helps you discover electricians, plumbers, cleaners, and handymen recommended by people you actually know—not random internet reviews.
 
-![TrustNet](https://img.shields.io/badge/Next.js-16.0-black?style=for-the-badge&logo=next.js)
+![Refferly](https://img.shields.io/badge/Next.js-16.0-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?style=for-the-badge&logo=postgresql)
 ![Prisma](https://img.shields.io/badge/Prisma-6.19-2D3748?style=for-the-badge&logo=prisma)
@@ -41,8 +41,8 @@ A network-backed reputation platform for finding trusted workers through verifie
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Abubakarsidiq01/TrustNet.git
-cd TrustNet/web
+git clone https://github.com/Abubakarsidiq01/Refferly.git
+cd Refferly/web
 ```
 
 ### 2. Install Dependencies
@@ -110,7 +110,7 @@ web/
 
 ## 🗄️ Database Schema
 
-TrustNet uses PostgreSQL with Prisma ORM. Key models include:
+Refferly uses PostgreSQL with Prisma ORM. Key models include:
 
 - **User**: Authentication and user accounts
 - **WorkerProfile**: Worker profiles with skills, location, and bio
@@ -161,7 +161,7 @@ For detailed deployment instructions, see [RENDER_DEPLOYMENT.md](./RENDER_DEPLOY
 
 ## 🔐 Authentication
 
-TrustNet uses email/password authentication with bcryptjs for password hashing. Users can sign up as either:
+Refferly uses email/password authentication with bcryptjs for password hashing. Users can sign up as either:
 - **Workers**: Create profiles, receive job offers, build reputation
 - **Clients**: Post jobs, hire workers, leave reviews
 
@@ -195,7 +195,7 @@ This project is private and proprietary.
 
 ---
 
-**Note**: TrustNet is currently focused on Lagos, Nigeria, with plans to expand to other cities.
+**Note**: Refferly is currently focused on Lagos, Nigeria, with plans to expand to other cities.
 ```
 
 - Contributing guidelines

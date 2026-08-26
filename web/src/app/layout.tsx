@@ -8,7 +8,7 @@ const lexendDeca = Lexend_Deca({
 });
 
 export const metadata: Metadata = {
-  title: "TrustNet – Find workers trusted by your own network",
+  title: "Refferly – Find workers trusted by your own network",
   description:
     "Real referrals, verified jobs, and sentiment-backed reputation mapped on a network graph.",
 };

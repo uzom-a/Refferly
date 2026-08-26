@@ -87,7 +87,7 @@ function SignInInner() {
       <div className="auth-hero-bg relative hidden flex-1 flex-col justify-between p-10 text-slate-50 md:flex">
         <div className="relative z-10 flex items-center justify-between text-xs uppercase tracking-[0.2em]">
           <span className="rounded-full border border-white/10 px-3 py-1 text-[10px]">
-            TrustNet
+            Refferly
           </span>
           <span className="text-white/60">Network-backed reputation</span>
         </div>

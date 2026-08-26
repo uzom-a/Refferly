@@ -19,13 +19,13 @@ export default async function Home() {
           <div className="flex items-center gap-3 text-2xl font-semibold tracking-tight text-slate-50">
             <Image
               src="/trustnet-logo.svg"
-              alt="TrustNet logo"
+              alt="Refferly logo"
               width={40}
               height={40}
               priority
             />
             <span className="rounded-full border border-slate-500/40 bg-slate-900 px-3 py-1 text-sm text-slate-50">
-              TrustNet
+              Refferly
             </span>
           </div>
           <nav className="hidden items-center gap-6 text-sm text-slate-200 md:flex">
@@ -55,14 +55,14 @@ export default async function Home() {
               <div className="flex items-center gap-3">
                 <Image
                   src="/trustnet-logo.svg"
-                  alt="TrustNet mark"
+                  alt="Refferly mark"
                   width={48}
                   height={48}
                   className="drop-shadow-md"
                 />
                 <div className="space-y-1">
                   <div className="text-sm font-semibold tracking-tight text-slate-900">
-                    TrustNet
+                    Refferly
                   </div>
                   <p className="text-[11px] text-slate-500">
                     Network-backed reputation for real-world work.
@@ -317,7 +317,7 @@ export default async function Home() {
       {/* Footer */}
       <footer className="border-t border-neutral-200 bg-white py-6">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 text-xs text-neutral-600">
-          <div>© {new Date().getFullYear()} TrustNet</div>
+          <div>© {new Date().getFullYear()} Refferly</div>
           <div className="flex flex-wrap gap-4">
             <Link href="/about" className="hover:text-neutral-900">
               About

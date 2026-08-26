@@ -518,7 +518,7 @@ export default function ClientDashboardPage() {
               </div>
               {connectionQuery.trim().length === 0 ? (
                 <Card className="border border-dashed border-slate-200 bg-slate-50 p-4 text-center text-sm text-slate-500">
-                  Start typing a name to search across TrustNet.
+                  Start typing a name to search across Refferly.
                 </Card>
               ) : connectionError ? (
                 <Card className="border border-red-200 bg-red-50 p-4 text-center text-sm font-medium text-red-700">

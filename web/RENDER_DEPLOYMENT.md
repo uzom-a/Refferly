@@ -1,4 +1,4 @@
-# Render Deployment Guide for TrustNet
+# Render Deployment Guide for Refferly
 
 ## Database Setup
 
@@ -40,9 +40,9 @@ Your Render PostgreSQL database is configured:
 
 1. Go to [Render Dashboard](https://dashboard.render.com/)
 2. Click "New +" → "Web Service"
-3. Connect your GitHub repository: `Abubakarsidiq01/TrustNet`
+3. Connect your GitHub repository: `Abubakarsidiq01/Refferly`
 4. Configure:
-   - **Name**: `trustnet-web`
+   - **Name**: `refferly-web`
    - **Root Directory**: `web`
    - **Environment**: `Node`
    - **Node Version**: `20` (or latest LTS)

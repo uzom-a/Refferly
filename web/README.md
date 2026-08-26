@@ -1,6 +1,6 @@
-# TrustNet - Secure Digital Trust and Identity Reputation Network
+# Refferly - Secure Digital Trust and Identity Reputation Network
 
-This is a [Next.js](https://nextjs.org) project for TrustNet, a platform that verifies people, organizations, credentials, and claims through cryptographic verification, proof-of-identity, proof-of-action, and trust scoring.
+This is a [Next.js](https://nextjs.org) project for Refferly, a platform that verifies people, organizations, credentials, and claims through cryptographic verification, proof-of-identity, proof-of-action, and trust scoring.
 
 ## Getting Started
 
@@ -66,7 +66,7 @@ The database is configured to use Render's PostgreSQL service:
 2. Click "New +" → "Web Service"
 3. Connect your GitHub repository
 4. Configure the service:
-   - **Name**: `trustnet-web` (or your choice)
+   - **Name**: `refferly-web` (or your choice)
    - **Root Directory**: `web`
    - **Environment**: `Node`
    - **Build Command**: `npm install && npx prisma generate && npm run build`

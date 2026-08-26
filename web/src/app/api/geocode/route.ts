@@ -34,7 +34,7 @@ export async function GET(request: Request) {
 
     const response = await fetch(url.toString(), {
       headers: {
-        "User-Agent": "TrustNet/1.0 (trustnet.local)",
+        "User-Agent": "Refferly/1.0 (refferly.local)",
         "Accept-Language": "en",
       },
       next: { revalidate: 0 },
