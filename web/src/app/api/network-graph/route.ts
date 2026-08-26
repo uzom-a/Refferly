@@ -61,44 +61,6 @@ export async function GET(request: Request) {
       }
     });
 
-    // Get second-degree connections (friends of friends)
-    const secondDegreeConnections = await prisma.connection.findMany({
-      where: {
-        OR: [
-          { userAId: { in: Array.from(connectedUserIds) } },
-          { userBId: { in: Array.from(connectedUserIds) } },
-        ],
-      },
-      include: {
-        userA: {
-          include: {
-            workerProfile: {
-              include: {
-                trustScores: {
-                  orderBy: { computedAt: "desc" },
-                  take: 1,
-                },
-              },
-            },
-            clientProfile: true,
-          },
-        },
-        userB: {
-          include: {
-            workerProfile: {
-              include: {
-                trustScores: {
-                  orderBy: { computedAt: "desc" },
-                  take: 1,
-                },
-              },
-            },
-            clientProfile: true,
-          },
-        },
-      },
-    });
-
     // Get reviews with referral chains
     const reviews = await prisma.review.findMany({
       where: {

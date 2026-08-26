@@ -63,7 +63,19 @@ export default function ClientOnboardingPage() {
           return;
         }
 
-        const payload = (await response.json()) as { profile: any };
+        const payload = (await response.json()) as {
+          profile: {
+            id: string;
+            name?: string;
+            fullAddress?: string;
+            city?: string;
+            area?: string;
+            state?: string;
+            country?: string;
+            latitude?: number;
+            longitude?: number;
+          } | null;
+        };
         if (!active || !payload.profile) return;
 
         const profile = payload.profile;
