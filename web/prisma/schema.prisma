@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  passwordHash String
+  role      UserRole
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  workerProfile WorkerProfile?
+  clientProfile ClientProfile?
+  reviews       Review[]        @relation("UserReviews")
+  connectionRequestsSent     ConnectionRequest[] @relation("ConnectionRequestsSent")
+  connectionRequestsReceived ConnectionRequest[] @relation("ConnectionRequestsReceived")
+  connectionsA               Connection[]        @relation("ConnectionsA")
+  connectionsB               Connection[]        @relation("ConnectionsB")
+}
+
+model WorkerProfile {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @unique
+  name      String
+  trade     String
+  city      String
+  area      String
+  state     String?
+  country   String?
+  fullAddress String?
+  latitude  Float?
+  longitude Float?
+  bio       String? 
+  skills    Json?
+  radiusKm  Int?
+  pathToYou String?
+  networkSteps Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  jobs        Job[]
+  trustScores TrustScoreSnapshot[]
+  reviews     Review[] @relation("WorkerReviews")
+}
+
+model ClientProfile {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @unique
+  name      String
+  city      String
+  area      String
+  state     String?
+  country   String?
+  fullAddress String?
+  latitude  Float?
+  longitude Float?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  jobs    Job[]
+  reviews Review[] @relation("ClientReviews")
+  referralsMade Review[] @relation("ReviewReferrers")
+}
+
+model Job {
+  id          String         @id @default(cuid())
+  worker      WorkerProfile  @relation(fields: [workerId], references: [id])
+  workerId    String
+  client      ClientProfile  @relation(fields: [clientId], references: [id])
+  clientId    String
+  title       String
+  description String?
+  city        String
+  area        String
+  startDate   DateTime?
+  endDate     DateTime?
+  status      JobStatus      @default(PENDING)
+  verificationStatus VerificationStatus @default(UNVERIFIED)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  reviews Review[]
+}
+
+model Review {
+  id                String         @id @default(cuid())
+  job               Job            @relation(fields: [jobId], references: [id])
+  jobId             String
+  reviewer          ClientProfile  @relation("ClientReviews", fields: [reviewerId], references: [id])
+  reviewerId        String
+  reviewee          WorkerProfile  @relation("WorkerReviews", fields: [revieweeId], references: [id])
+  revieweeId        String
+  text              String
+  punctuality       Int
+  communication     Int
+  pricingFairness   Int
+  skill             Int
+  sentimentScore    Float
+  isReferralBased   Boolean        @default(false)
+  referrer          ClientProfile? @relation("ReviewReferrers", fields: [referrerId], references: [id])
+  referrerId        String?
+  visibility        ReviewVisibility @default(PUBLIC)
+  createdAt         DateTime       @default(now())
+
+  author User @relation("UserReviews", fields: [authorId], references: [id])
+  authorId String
+}
+
+model TrustScoreSnapshot {
+  id          String   @id @default(cuid())
+  worker      WorkerProfile @relation(fields: [workerId], references: [id])
+  workerId    String
+  total       Int
+  sentiment   Int
+  referrals   Int
+  verified    Int
+  freshness   Int
+  computedAt  DateTime @default(now())
+}
+
+enum UserRole {
+  WORKER
+  CLIENT
+}
+
+enum JobStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum VerificationStatus {
+  UNVERIFIED
+  CLIENT_CONFIRMED
+  DOCUMENT_SUBMITTED
+  FULLY_VERIFIED
+}
+
+enum ReviewVisibility {
+  PUBLIC
+  NETWORK_ONLY
+  PRIVATE
+}
+
+model ConnectionRequest {
+  id         String                  @id @default(cuid())
+  sender     User                    @relation("ConnectionRequestsSent", fields: [senderId], references: [id])
+  senderId   String
+  receiver   User                    @relation("ConnectionRequestsReceived", fields: [receiverId], references: [id])
+  receiverId String
+  status     ConnectionRequestStatus @default(PENDING)
+  createdAt  DateTime                @default(now())
+  updatedAt  DateTime                @updatedAt
+
+  @@unique([senderId, receiverId])
+}
+
+model Connection {
+  id      String @id @default(cuid())
+  userA   User   @relation("ConnectionsA", fields: [userAId], references: [id])
+  userAId String
+  userB   User   @relation("ConnectionsB", fields: [userBId], references: [id])
+  userBId String
+  createdAt DateTime @default(now())
+
+  @@unique([userAId, userBId])
+}
+
+enum ConnectionRequestStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+}
+
+
